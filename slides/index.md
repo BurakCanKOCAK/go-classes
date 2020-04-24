@@ -6,7 +6,7 @@ Jean Khechfe, Jakub Jasiński, Paweł Kuffel
 
 ---
 
-<!-- .slide: data-background="images/slide-background.jpg" -->
+<!-- .slide: data-background="images/slide-background/slide-background.jpg" -->
 
 ## Second slide <!-- .element: class="dark_back" -->
 
@@ -52,11 +52,11 @@ func main() {
 
 ## Summary
 
-- Lorem ipsum <!-- .element: class="fragment" data-fragment-index="1" -->
-- Dolor sit amet <!-- .element: class="fragment" data-fragment-index="2" -->
-- Yet another point <!-- .element: class="fragment" data-fragment-index="3" -->
+-   Lorem ipsum <!-- .element: class="fragment" data-fragment-index="1" -->
+-   Dolor sit amet <!-- .element: class="fragment" data-fragment-index="2" -->
+-   Yet another point <!-- .element: class="fragment" data-fragment-index="3" -->
 
-----
+---
 
 ## Final slide
 

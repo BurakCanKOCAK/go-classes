@@ -12,7 +12,9 @@ jobs:
       with:
         node-version: '10.x'
     - run: npm install -g reveal-md
+    - run: cp slides/reveal.json .
     - run: reveal-md slides/index.md --static site
+    - run: cp -r slides/images/slide-background site/images
     - uses: netlify/actions/cli@master
       with:
         args: deploy --dir=site --prod
