@@ -12,7 +12,50 @@ Jean Khechfe, Jakub Jasiński, Paweł Kuffel
 
 > Best quote ever. <!-- .element: class="dark_back" -->
 
-----
+---
+
+## What is GO
+
+Go is a new, general-purpose programming language which is:
+* Compiled
+* statically typed
+* syntactically similar to C
+* memory safe
+* garbage collection
+<!-- you can add more -->
+
+---
+
+## History of GO
+
+1. Project starts at Google in 2007 (by Griesemer, Pike, Thompson)
+2. Open source release in November 2009
+3. More than 250 contributors join the project
+4. Version 1.0 release in March 2012
+
+---
+
+## Install GO
+
+go to [golang.org](https://golang.org), you will find a link to download and Install GO for your operation system, and once you have done that you will find the GO command-line tools available.
+
+---
+
+## Test your GO Installation
+
+1. A bulletpoint
+2. Another one
+3. Yet another one
+
+---
+
+## Create your firt GO project
+
+1. Step 1
+2. Step 2
+3. Step 3
+
+---
 
 ## Yet another slide
 
@@ -20,7 +63,7 @@ Jean Khechfe, Jakub Jasiński, Paweł Kuffel
 2. Another one
 3. Yet another one
 
-----
+---
 
 ### Another slide
 
