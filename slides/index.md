@@ -59,6 +59,7 @@ and you should see your go version.
 ## Create your first GO application
 
 1. Create a file named *hello.go* that looks like:
+
 ```go
 package main
 
@@ -68,7 +69,9 @@ func main() {
 	fmt.Printf("hello, world\n")
 }
 ```
+
 2. Then build it with the go tool:
+
 ```bash
 > go build hello.go
 ```
