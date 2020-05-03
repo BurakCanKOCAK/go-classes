@@ -77,6 +77,7 @@ func main() {
 ```
 
 3. The command above will build an executable named **hello.exe** in the current directory alongside your source code. Execute it to see the greeting:
+
 ```bash
 > hello
 hello, world
