@@ -55,11 +55,28 @@ and you should see your go version.
 
 ---
 
-## Create your first GO project
+## Create your first GO application
 
-1. Step 1
-2. Step 2
-3. Step 3
+1. Create a file named *hello.go* that looks like:
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Printf("hello, world\n")
+}
+```
+2. Then build it with the go tool:
+```bash
+> go build hello.go
+```
+
+3. The command above will build an executable named **hello.exe** in the current directory alongside your source code. Execute it to see the greeting:
+```bash
+> hello
+hello, world
+```
 
 ---
 
