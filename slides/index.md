@@ -43,9 +43,11 @@ go to [golang.org](https://golang.org), you will find a link to download and Ins
 
 ## Test your GO Installation
 
-1. A bulletpoint
-2. Another one
-3. Yet another one
+Open your terminal and type:
+```bash
+go version  
+```
+and you should your go version.
 
 ---
 
