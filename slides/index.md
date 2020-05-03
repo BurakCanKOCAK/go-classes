@@ -55,6 +55,7 @@ and you should see your go version.
 
 ---
 
+<!-- .slide: class="text-left" -->
 ## Create your first GO application
 
 1. Create a file named *hello.go* that looks like:
