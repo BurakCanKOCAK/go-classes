@@ -14,6 +14,7 @@ Jean Khechfe, Jakub Jasiński, Paweł Kuffel
 
 ---
 
+<!-- .slide: class="text-left" -->
 ## What is GO
 
 Go is a new, general-purpose programming language which is:
@@ -26,6 +27,7 @@ Go is a new, general-purpose programming language which is:
 
 ---
 
+<!-- .slide: class="text-left" -->
 ## History of GO
 
 1. Project starts at Google in 2007 (by Griesemer, Pike, Thompson)
@@ -35,12 +37,14 @@ Go is a new, general-purpose programming language which is:
 
 ---
 
+<!-- .slide: class="text-left" -->
 ## Install GO
 
 go to [golang.org](https://golang.org), you will find a link to download and Install GO for your operation system, and once you have done that you will find the GO command-line tools available.
 
 ---
 
+<!-- .slide: class="text-left" -->
 ## Test your GO Installation
 
 Open your terminal and type:
@@ -121,5 +125,8 @@ Some text
   background-color: rgba(0, 0, 0, 0.9);
   color: #fff;
   padding: 20px;
+}
+.text-left {
+	text-align: left;
 }
 </style>
