@@ -47,11 +47,11 @@ Open your terminal and type:
 ```bash
 go version  
 ```
-and you should your go version.
+and you should see your go version.
 
 ---
 
-## Create your firt GO project
+## Create your first GO project
 
 1. Step 1
 2. Step 2
