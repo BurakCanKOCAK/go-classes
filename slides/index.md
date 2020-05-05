@@ -76,11 +76,153 @@ func main() {
 > go build hello.go
 ```
 
-3. The command above will build an executable named **hello.exe** in the current directory alongside your source code. Execute it to see the greeting:
+3. The command above will build an executable in the current directory alongside your source code and its name will be **hello.exe** in windows or **hello** in macOS. Execute it to see the greeting:
 
 ```bash
 > hello
 hello, world
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Declaring variables
+
+```go
+	var x int
+	const isCool = true
+	var y float32 = 2.3
+
+	// Shorthand
+	name := "Bob"
+	a := 4
+	b := 8
+	sum := a + b
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Packages
+
+```go
+package main
+
+import (
+	"fmt"
+	"math"
+
+	"github.com/bradtraversy/go_crash_course/03_packages/strutil"
+)
+
+func main() {
+	fmt.Println(math.Floor(2.7))
+	fmt.Println(math.Ceil(2.7))
+	fmt.Println(math.Sqrt(16))
+	fmt.Println(strutil.Reverse("hello"))
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Functions
+
+```go
+package main
+
+import "fmt"
+
+func greeting(name string) string {
+	return "Hello " + name
+}
+
+func getSum(num1, num2 int) int {
+	return num1 + num2
+}
+
+func main() {
+	fmt.Println(getSum(3, 4))
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Conditionals
+
+```go
+	x := 10
+	y := 10
+
+	if x < y {
+		fmt.Printf("%d is less than to %d\n", x, y)
+	} else if x == y {
+		fmt.Printf("%d is equal to %d\n", y, x)
+	} else {
+		fmt.Printf("%d is less than %d\n", y, x)
+	}
+
+	color := "red"
+	
+	switch color {
+	case "red":
+		fmt.Println("color is red")
+	case "blue":
+		fmt.Println("color is blue")
+	default:
+		fmt.Println("color is NOT blue or red")
+	}
+```
+
+---
+<!-- .slide: class="text-left" -->
+## Functions
+
+```go
+package main
+
+import "fmt"
+
+func greeting(name string) string {
+	return "Hello " + name
+}
+
+func getSum(num1, num2 int) int {
+	return num1 + num2
+}
+
+func main() {
+	fmt.Println(getSum(3, 4))
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Arrays
+
+```go
+func main() {
+	
+	var fruitArr [2]string
+
+	fruitArr[0] = "Apple"
+	fruitArr[1] = "Orange"
+	fruitArr[2] = "Cherry" // error
+
+
+	// Decalre and assign
+	fruitArr := [2]string{"Apple", "Orange"}
+
+	fmt.Println(fruitArr)
+	fmt.Println(fruitArr[1])
+
+	fruitSlice := []string{"Apple", "Orange", "Grape", "Cherry"}
+
+	fmt.Println(len(fruitSlice))
+	fmt.Println(fruitSlice[1:3])
+}
 ```
 
 ---
