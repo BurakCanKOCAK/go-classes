@@ -131,7 +131,11 @@ func main() {
 ```go
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+	"math"
+)
 
 func greeting(name string) string {
 	return "Hello " + name
@@ -141,8 +145,23 @@ func getSum(num1, num2 int) int {
 	return num1 + num2
 }
 
+func sqrt(x float64) (float64, error) {
+	if x < 0 {
+		return 0, errors.New("Undefined for negative numbers")
+	}
+
+	return math.Sqrt(x), nil
+}
+
 func main() {
 	fmt.Println(getSum(3, 4))
+
+	result, err := sqrt(16)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(result)
+	}
 }
 ```
 
@@ -200,6 +219,165 @@ func main() {
 
 	fmt.Println(len(fruitSlice))
 	fmt.Println(fruitSlice[1:3])
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Maps
+
+```go
+func main() {
+	vertices := make(map[string]int)
+
+	vertices["triangle"] = 3
+	vertices["square"] = 4
+	vertices["dodecagon"] = 12
+
+	fmt.Println(vertices)
+	fmt.Println(len(vertices))
+	fmt.Println(vertices["triangle"])
+
+	delete(vertices, "square")
+
+	fmt.Println(vertices)
+
+	emails := map[string]string{"Bob": "bob@gmail.com", "Sharon": "sharon@gmail.com"}
+
+	emails["Mike"] = "mike@gmail.com"
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Loops
+
+```go
+func main() {
+	// For loop
+	for i := 0; i < 5; i++ {
+		fmt.Println(i)
+	}
+
+	// While loop
+	i := 0
+	for i < 5 {
+		fmt.Println(i)
+		i++
+	}
+
+	// For each loop
+	arr := [3]string{"a", "b", "c"}
+
+	for index, value := range arr {
+		fmt.Println("index:", index, "value:", value)
+	}
+
+	m := make(map[string]string)
+	m["a"] = "alpha"
+	m["b"] = "beta"
+
+	for key, value := range m {
+		fmt.Println("key:", key, "value:", value)
+	}
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Struct
+
+```go
+import (
+	"fmt"
+	"strconv"
+)
+
+// Define person struct
+type Person struct {
+	firstName, lastName, city, gender string
+	age                               int
+}
+
+func (p Person) greet() string {
+	return "Hello, my name is " + p.firstName + " " + p.lastName + " and I am " + strconv.Itoa(p.age)
+}
+
+func main() {
+
+	person := Person{"Bob", "Johnson", "New York", "m", 30}
+	fmt.Println(person.greet())
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Pointers
+
+```go
+func main() {
+	a := 5
+	b := &a
+
+	fmt.Println(a, b)
+	fmt.Printf("%T\n", b)
+
+	//  Use * to read val from address
+	fmt.Println(*b)
+	fmt.Println(*&a)
+
+	// Change val with pointer
+	*b = 10
+	fmt.Println(a)
+
+	// Another example
+	i := 7
+	fmt.Println("Memory address:", &i)
+
+	inc1(i)
+	fmt.Println("i not modified:", i)
+
+	inc2(&i)
+	fmt.Println("i incremented successfully:", i)
+}
+
+func inc1(x int) {
+	x++
+}
+
+func inc2(x *int) {
+	*x++
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Web
+
+```go
+import (
+	"fmt"
+	"net/http"
+)
+
+func index(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "<h1>Hello World</h1>")
+}
+
+func about(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "<h1>About</h1>")
+}
+
+func main() {
+	http.HandleFunc("/", index)
+	http.HandleFunc("/about", about)
+	fmt.Println("Server Starting...")
+	http.ListenAndServe(":3000", nil)
 }
 ```
 
