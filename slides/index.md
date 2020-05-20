@@ -383,6 +383,153 @@ func main() {
 
 ---
 
+<!-- .slide: class="text-left" -->
+## Examples
+
+```go
+package main
+
+// go get "github.com/bradtraversy/go_crash_course/03_packages/strutil"
+
+import (
+    "fmt"
+    "github.com/bradtraversy/go_crash_course/03_packages/strutil"
+    "strconv"
+)
+
+func isPalindromeNumber(number int) bool {
+    var numberAsString = strconv.Itoa(number)
+    var reversedNumber = strutil.Reverse(numberAsString)
+    return reversedNumber == numberAsString
+}
+
+func main() {
+    fmt.Println(isPalindromeNumber(12344321)) // true
+    fmt.Println(isPalindromeNumber(10111)) // false
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Examples
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    fmt.Println(primesSum([]int{1, 2, 3})) // 10
+    fmt.Println(primesSum([]int{1, 10, 20})) // 102
+}
+
+func primesSum(positionsToSum []int) int {
+
+    var sum int = 0
+    var primeNumbers = generateFirst900PrimeNumbers()
+	
+    for _, position := range positionsToSum {
+    	sum += primeNumbers[position - 1]
+    }
+
+    return sum
+}
+
+func generateFirst900PrimeNumbers() (primes []int) {
+    N := 7000
+    b := make([]bool, N)
+    for i := 2; i < N; i++ {
+        if b[i] == true { continue }
+        primes = append(primes, i)
+        for k := i * i; k < N; k += i {
+            b[k] = true
+        }
+    }
+    return
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Examples
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var fruit = NewFruit("blue", "medium", 30)
+	fruit.showDetails()
+}
+
+type Fruit struct {
+	color, size string
+	price int
+}
+
+func NewFruit(newColor string, newSize string, newPrice int) *Fruit {
+	return &Fruit{color:newColor, size:newSize, price:newPrice}
+}
+
+func (fruit Fruit) showDetails() {
+	fmt.Println("I have", fruit.color, "color, my size is", fruit.size, "and I cost", fruit.price)
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Examples
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var apple = NewApple("red", "big", 50, "Poland", "medium")
+	apple.showDetails()
+	apple.showAdditionalInfo()
+}
+
+type Apple struct {
+	*Fruit
+	originCountry, sweetness string
+}
+
+func NewApple(newColor string, newSize string, newPrice int, newCountry string, newSweetness string) *Apple {
+	return &Apple{Fruit:&Fruit{color:newColor, size:newSize, price:newPrice}, originCountry:newCountry, sweetness:newSweetness}
+}
+
+func (apple Apple) showAdditionalInfo() {
+	fmt.Println("I am from", apple.originCountry, "and my sweetness is", apple.sweetness)
+}
+
+type Fruit struct {
+	color, size string
+	price int
+}
+
+func NewFruit(newColor string, newSize string, newPrice int) *Fruit {
+	return &Fruit{color:newColor, size:newSize, price:newPrice}
+}
+
+func (fruit Fruit) showDetails() {
+	fmt.Println("I have", fruit.color, "color, my size is", fruit.size, "and I cost", fruit.price)
+}
+```
+
+---
+
 ## Yet another slide
 
 1. A bulletpoint
