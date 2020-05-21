@@ -576,6 +576,33 @@ import (
 )
 
 func main() {
+	var apple = NewApple("red", "big", 50, "Poland", "medium")
+	apple.showDetails()
+}
+
+func (apple Apple) showDetails() {
+	fmt.Println("I have", apple.color, "color, my size is", apple.size, "and I cost", apple.price, ". Also I am from", apple.originCountry, "and my sweetness is", apple.sweetness, ".")
+}
+
+type Apple struct {
+	*Fruit
+	originCountry, sweetness string
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Examples
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
 	var yellowApple = NewApple("yellow", "medium", 70, "Italy", "high")
 	var fruit = NewFruit("blue", "medium", 30)
 	var redApple = NewApple("red", "big", 50, "Poland", "medium")
