@@ -565,6 +565,31 @@ func (fruit Fruit) showDetails() {
 
 ---
 
+<!-- .slide: class="text-left" -->
+## Examples
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var yellowApple = NewApple("yellow", "medium", 70, "Italy", "high")
+	var fruit = NewFruit("blue", "medium", 30)
+	var redApple = NewApple("red", "big", 50, "Poland", "medium")
+	
+	sliceOfFruits := [3]*Fruit{yellowApple.Fruit, fruit, redApple.Fruit}
+
+	for _, fruit := range sliceOfFruits {
+		fruit.showDetails()
+	}
+}
+```
+
+---
+
 ## Yet another slide
 
 1. A bulletpoint
