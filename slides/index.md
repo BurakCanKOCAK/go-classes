@@ -419,6 +419,41 @@ package main
 
 import (
     "fmt"
+    "strings"
+    "strconv"
+)
+
+func digitCount(number int) map[int]int {
+	numberAsString := strconv.Itoa(number)
+	counts := make(map[int]int, 10)
+	for i := 0; i <= 9; i++ {
+		counts[i] = strings.Count(numberAsString, strconv.Itoa(i))
+	}
+	return counts
+}
+
+func main() {
+    count := digitCount(123444321)
+    printMap(count) // 0:0 1:2 2:2 3:2 4:3 5:0 6:0 7:0 8:0 9:0 
+}
+
+func printMap(resultMap map[int]int) {
+	for i := 0; i <= 9; i++ {
+    	fmt.Print(i,":", resultMap[i], " ")
+    }
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Examples
+
+```go
+package main
+
+import (
+    "fmt"
 )
 
 func main() {
