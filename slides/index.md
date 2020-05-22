@@ -112,7 +112,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bradtraversy/go_crash_course/03_packages/strutil"
+	"jean/go_course/packages/strutil"
 )
 
 func main() {
