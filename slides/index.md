@@ -132,9 +132,7 @@ func main() {
 package main
 
 import (
-	"errors"
 	"fmt"
-	"math"
 )
 
 func greeting(name string) string {
@@ -145,23 +143,68 @@ func getSum(num1, num2 int) int {
 	return num1 + num2
 }
 
+func main() {
+	fmt.Println(greeting("TSD"))
+	fmt.Println(getSum(3, 4))
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Functions (Multiple return values)
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"math"
+)
+
 func sqrt(x float64) (float64, error) {
 	if x < 0 {
 		return 0, errors.New("Undefined for negative numbers")
 	}
-
 	return math.Sqrt(x), nil
 }
 
 func main() {
-	fmt.Println(getSum(3, 4))
-
 	result, err := sqrt(16)
 	if err != nil {
 		fmt.Println(err)
 	} else {
 		fmt.Println(result)
 	}
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Functions (Named return values)
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func function1() (i int, s string) {
+    i = 17
+    s = "abc"
+    return // same as return i, s
+}
+
+func function2() (i int) {
+    return
+}
+
+func main() {
+	fmt.Println(function1()) // 17 abc
+	fmt.Println(function2()) // 0
 }
 ```
 
