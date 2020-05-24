@@ -89,12 +89,22 @@ hello, world
 ## Declaring variables
 
 ```go
-	var x int
+	// Using the var keyword 
+	var x int // initiated with zero
+	var name string = "Bob"
 	const isCool = true
 	var y float32 = 2.3
+	var x, y, z int
+	var a, b int = 4, 8 //a = 4, b = 8
+
+	//implicit declaration 
+	var name = "Bob"
+	var y = 2.3
+	var a, b = 4, 8
 
 	// Shorthand
 	name := "Bob"
+	y := 2.3
 	a := 4
 	b := 8
 	sum := a + b
