@@ -346,6 +346,26 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+## Range and underscore character
+
+```go
+func main() {
+	// For each loop
+	arr := [3]string{"a", "b", "c"}
+
+	for index, value := range arr { // Error: ./example.go:5:7: sad declared and not used
+		fmt.Println("value:", value)
+	}
+
+	for _, value := range arr { // Running without errors
+		fmt.Println("value:", value)
+	}
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
 ## Struct
 
 ```go
