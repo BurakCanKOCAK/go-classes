@@ -58,7 +58,7 @@ and you should see your go version.
 <!-- .slide: class="text-left" -->
 ## Create your first GO application
 
-1. Create a file named *hello.go* that looks like:
+Create a file named *hello.go* that looks like:
 
 ```go
 package main
@@ -69,18 +69,23 @@ func main() {
 	fmt.Printf("hello, world\n")
 }
 ```
-
-2. Then build it with the go tool:
+Then:
+1. build it with the go tool:
 
 ```bash
 > go build hello.go
 ```
 
-3. The command above will build an executable in the current directory alongside your source code and its name will be **hello.exe** in windows or **hello** in macOS. Execute it to see the greeting:
+2. The command above will build an executable in the current directory alongside your source code and its name will be **hello.exe** in windows or **hello** in macOS. Execute it to see the greeting:
 
 ```bash
 > hello
 hello, world
+```
+OR
+
+```bash
+> go run hello.go
 ```
 
 ---
