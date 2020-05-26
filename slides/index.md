@@ -268,16 +268,11 @@ func main() {
 	fruitArr[2] = "Cherry" // error
 
 
-	// Decalre and assign
+	// Declare and assign
 	fruitArr := [2]string{"Apple", "Orange"}
 
 	fmt.Println(fruitArr)
 	fmt.Println(fruitArr[1])
-
-	fruitSlice := []string{"Apple", "Orange", "Grape", "Cherry"}
-
-	fmt.Println(len(fruitSlice))
-	fmt.Println(fruitSlice[1:3])
 }
 ```
 
@@ -340,6 +335,26 @@ func main() {
 
 	for key, value := range m {
 		fmt.Println("key:", key, "value:", value)
+	}
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+## Range and blank identifier
+
+```go
+func main() {
+	// For each loop
+	arr := [3]string{"a", "b", "c"}
+
+	for index, value := range arr { // Error: ./example.go:5:7: index declared and not used
+		fmt.Println("value:", value)
+	}
+
+	for _, value := range arr { // Running without errors
+		fmt.Println("value:", value)
 	}
 }
 ```
