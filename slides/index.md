@@ -346,14 +346,14 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
-## Range and underscore character
+## Range and blank identifier
 
 ```go
 func main() {
 	// For each loop
 	arr := [3]string{"a", "b", "c"}
 
-	for index, value := range arr { // Error: ./example.go:5:7: sad declared and not used
+	for index, value := range arr { // Error: ./example.go:5:7: index declared and not used
 		fmt.Println("value:", value)
 	}
 
