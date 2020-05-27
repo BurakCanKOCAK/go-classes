@@ -469,37 +469,6 @@ func main() {
 
 ---
 
-## Memory safety in go
-
-```
-func main() {
-   items := []int{1, 2, 3}
-
-   printList(items)
-}
-
-func printList(list []int) {
-   println(list[2])
-   println(list[3])
-}
-```
-
-`go tool compile -S main.go`
-
-```
-0x0057 00087 (main.go:11)  MOVQ   "".list+48(SP), CX
-0x005c 00092 (main.go:11)  CMPQ   CX, $3
-0x0060 00096 (main.go:11)  JLS    151
-// ...
-0x0096 00150 (main.go:12)  RET
-0x0097 00151 (main.go:11)  MOVL   $3, AX
-0x009c 00156 (main.go:11)  CALL   runtime.panicIndex(SB)
-0x00a1 00161 (main.go:10)  MOVL   $2, AX
-0x00a6 00166 (main.go:10)  CALL   runtime.panicIndex(SB)
-```
-
----
-
 <!-- .slide: class="text-left" -->
 
 ## Nesting structs
@@ -592,6 +561,37 @@ func inc1(x int) {
 func inc2(x *int) {
 	*x++
 }
+```
+
+---
+
+## Memory safety in go
+
+```
+func main() {
+   items := []int{1, 2, 3}
+
+   printList(items)
+}
+
+func printList(list []int) {
+   println(list[2])
+   println(list[3])
+}
+```
+
+`go tool compile -S main.go`
+
+```
+0x0057 00087 (main.go:11)  MOVQ   "".list+48(SP), CX
+0x005c 00092 (main.go:11)  CMPQ   CX, $3
+0x0060 00096 (main.go:11)  JLS    151
+// ...
+0x0096 00150 (main.go:12)  RET
+0x0097 00151 (main.go:11)  MOVL   $3, AX
+0x009c 00156 (main.go:11)  CALL   runtime.panicIndex(SB)
+0x00a1 00161 (main.go:10)  MOVL   $2, AX
+0x00a6 00166 (main.go:10)  CALL   runtime.panicIndex(SB)
 ```
 
 ---
