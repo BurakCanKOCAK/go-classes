@@ -6,38 +6,51 @@ Jean Khechfe, Jakub Jasiński, Paweł Kuffel
 
 ---
 
-<!-- .slide: data-background="images/slide-background/slide-background.jpg" -->
-
-## Second slide <!-- .element: class="dark_back" -->
-
-> Best quote ever. <!-- .element: class="dark_back" -->
+<!-- .slide: data-background="images/slide-background/goopher.png" -->
 
 ---
 
 <!-- .slide: class="text-left" -->
-## What is GO
 
-Go is a new, general-purpose programming language which is:
-* Compiled
-* statically typed
-* syntactically similar to C
-* memory safe
-* garbage collection
+## GO's aims
+
+In the design process of Golang, the following priorities were established:
+
+-   Programming ease compared to dynamic languages
+-   Performance as close to C/C++
+-   Quick compile times
+-   Good developer experience
 <!-- you can add more -->
 
 ---
 
 <!-- .slide: class="text-left" -->
+
+## What is GO
+
+Go is a new, general-purpose programming language which is:
+
+-   Compiled
+-   Statically typed
+-   Memory safe
+-   Garbage-collected
+<!-- you can add more -->
+
+---
+
+<!-- .slide: class="text-left" -->
+
 ## History of GO
 
 1. Project starts at Google in 2007 (by Griesemer, Pike, Thompson)
 2. Open source release in November 2009
 3. More than 250 contributors join the project
-4. Version 1.0 release in March 2012
+4. Version 1.0 released in March 2012
 
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Install GO
 
 go to [golang.org](https://golang.org), you will find a link to download and Install GO for your operation system, and once you have done that you will find the GO command-line tools available.
@@ -45,20 +58,24 @@ go to [golang.org](https://golang.org), you will find a link to download and Ins
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Test your GO Installation
 
 Open your terminal and type:
+
 ```bash
-go version  
+go version
 ```
+
 and you should see your go version.
 
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Create your first GO application
 
-Create a file named *hello.go* that looks like:
+Create a file named _hello.go_ that looks like:
 
 ```go
 package main
@@ -69,19 +86,20 @@ func main() {
 	fmt.Printf("hello, world\n")
 }
 ```
-Then:
-1. build it with the go tool:
+
+Then build it with the go tool:
 
 ```bash
 > go build hello.go
 ```
 
-2. The command above will build an executable in the current directory alongside your source code and its name will be **hello.exe** in windows or **hello** in macOS. Execute it to see the greeting:
+The command above will build an executable in the current directory alongside your source code and its name will be **hello.exe** in windows or **hello** in macOS. Execute it to see the greeting:
 
 ```bash
 > hello
 hello, world
 ```
+
 OR
 
 ```bash
@@ -91,10 +109,11 @@ OR
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Declaring variables
 
 ```go
-	// Using the var keyword 
+	// Using the var keyword
 	var x int // initiated with zero
 	var name string = "Bob"
 	const isCool = true
@@ -102,7 +121,7 @@ OR
 	var x, y, z int
 	var a, b int = 4, 8 //a = 4, b = 8
 
-	//implicit declaration 
+	//implicit declaration
 	var name = "Bob"
 	var y = 2.3
 	var a, b = 4, 8
@@ -118,6 +137,7 @@ OR
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Packages
 
 ```go
@@ -142,6 +162,7 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Functions
 
 ```go
@@ -173,6 +194,7 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Functions (Multiple return values)
 
 ```go
@@ -204,6 +226,7 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Functions (Named return values)
 
 ```go
@@ -232,6 +255,7 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Conditionals
 
 ```go
@@ -247,7 +271,7 @@ func main() {
 	}
 
 	color := "red"
-	
+
 	switch color {
 	case "red":
 		fmt.Println("color is red")
@@ -261,11 +285,12 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Arrays
 
 ```go
 func main() {
-	
+
 	var fruitArr [2]string
 
 	fruitArr[0] = "Apple"
@@ -284,6 +309,7 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Maps
 
 ```go
@@ -311,6 +337,7 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Loops
 
 ```go
@@ -347,6 +374,7 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Range and blank identifier
 
 ```go
@@ -354,7 +382,8 @@ func main() {
 	// For each loop
 	arr := [3]string{"a", "b", "c"}
 
-	for index, value := range arr { // Error: ./example.go:5:7: index declared and not used
+	// ERROR: index declared and not used
+	for index, value := range arr {
 		fmt.Println("value:", value)
 	}
 
@@ -367,34 +396,166 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
-## Struct
+
+## Slices
+
+-   Go uses an abstraction built on top of array type called a slice
+-   It provides a dynamic view into the elements of an array
+-   A slice consists of a pointer to an array, segment length and it's capacity
 
 ```go
-import (
-	"fmt"
-	"strconv"
-)
+numbers := [6]int{2, 3, 5, 7, 11, 13}
 
-// Define person struct
-type Person struct {
-	firstName, lastName, city, gender string
-	age                               int
+var numbersSlice []int = numbers[2:4]
+
+fmt.Println(numbersSlice) // [5 7]
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+
+## Slices
+
+```go
+q := []int{2, 3, 5, 7, 11, 13}
+
+fmt.Println(cap(q)) // 6
+q = append(q, 1)
+q = append(q, 2, 3, 4)
+fmt.Println(cap(q)) // 12
+
+q = q[:5]
+fmt.Println(len(q))
+//panic: runtime error: slice bounds out of range [:20] with capacity 12
+
+board := [][]string{
+	[]string{"x", "x", "x"},
+	[]string{"x", "x", "x"},
+	[]string{"x", "x", "x"},
 }
 
-func (p Person) greet() string {
-	return "Hello, my name is " + p.firstName + " " + p.lastName + " and I am " + strconv.Itoa(p.age)
+board[0][2] = "X"
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+
+## Structs
+
+```go
+type Animal struct {
+	Age  int
+	Name string
+}
+func (a *Animal) Move() {
+	fmt.Println("Animal moved")
+}
+func (a *Animal) PrintAge() {
+	fmt.Printf("Animal age: %d\n", a.Age)
+}
+func newAnimal(age int, name string) *Animal {
+	return &Animal{Age: age, Name: name}
 }
 
 func main() {
+	animal1 := Animal{10, "Animal1"}
+	animal1.PrintAge()
+	animal1.Move()
+	animal2 := newAnimal(20, "Animal2")
+	animal2.PrintAge() // animal2 is a pointer (*Animal)
+```
 
-	person := Person{"Bob", "Johnson", "New York", "m", 30}
-	fmt.Println(person.greet())
+---
+
+## Memory safety in go
+
+```
+func main() {
+   items := []int{1, 2, 3}
+
+   printList(items)
+}
+
+func printList(list []int) {
+   println(list[2])
+   println(list[3])
+}
+```
+
+`go tool compile -S main.go`
+
+```
+0x0057 00087 (main.go:11)  MOVQ   "".list+48(SP), CX
+0x005c 00092 (main.go:11)  CMPQ   CX, $3
+0x0060 00096 (main.go:11)  JLS    151
+// ...
+0x0096 00150 (main.go:12)  RET
+0x0097 00151 (main.go:11)  MOVL   $3, AX
+0x009c 00156 (main.go:11)  CALL   runtime.panicIndex(SB)
+0x00a1 00161 (main.go:10)  MOVL   $2, AX
+0x00a6 00166 (main.go:10)  CALL   runtime.panicIndex(SB)
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+
+## Nesting structs
+
+```go
+type Dog struct {
+	CollarColor string
+	*Animal
+}
+
+func newDog(age int, name string, collarColor string) *Dog {
+	return &Dog{collarColor, newAnimal(age, name)}
+}
+
+func (d *Dog) Move() {
+	d.Animal.Move()
+	fmt.Println("And that animal was a dog")
+}
+
+func main() {
+	barky := newDog(5, "Barky", "Red")
+	barky.Move() //animal moved and that animal was a dog
+	barky.PrintAge() //prints age: 5
 }
 ```
 
 ---
 
 <!-- .slide: class="text-left" -->
+
+## Interfaces
+
+```go
+type IAnimal interface {
+	Move()
+}
+
+func DoSomething(a IAnimal) {
+	a.Move()
+}
+
+func main() {
+	/// ...
+	animals := []IAnimal{&animal1, animal2, barky}
+	// we can't add animal1 unless we provide a pointer to it
+	for _, a := range animals {
+		a.Move()
+		DoSomething(a)
+	}
+}
+```
+
+---
+
+<!-- .slide: class="text-left" -->
+
 ## Pointers
 
 ```go
@@ -436,6 +597,7 @@ func inc2(x *int) {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Examples
 
 ```go
@@ -464,6 +626,7 @@ func main() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Examples
 
 ```go
@@ -486,7 +649,7 @@ func digitCount(number int) map[int]int {
 
 func main() {
     count := digitCount(123444321)
-    printMap(count) // 0:0 1:2 2:2 3:2 4:3 5:0 6:0 7:0 8:0 9:0 
+    printMap(count) // 0:0 1:2 2:2 3:2 4:3 5:0 6:0 7:0 8:0 9:0
 }
 
 func printMap(resultMap map[int]int) {
@@ -499,6 +662,7 @@ func printMap(resultMap map[int]int) {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Examples
 
 ```go
@@ -517,7 +681,7 @@ func primesSum(positionsToSum []int) int {
 
     var sum int = 0
     var primeNumbers = generateFirst900PrimeNumbers()
-	
+
     for _, position := range positionsToSum {
     	sum += primeNumbers[position - 1]
     }
@@ -542,6 +706,7 @@ func generateFirst900PrimeNumbers() (primes []int) {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Examples
 
 ```go
@@ -573,6 +738,7 @@ func (fruit Fruit) showDetails() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Examples
 
 ```go
@@ -618,6 +784,7 @@ func (fruit Fruit) showDetails() {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Examples
 
 ```go
@@ -645,6 +812,7 @@ type Apple struct {
 ---
 
 <!-- .slide: class="text-left" -->
+
 ## Examples
 
 ```go
@@ -658,7 +826,7 @@ func main() {
 	var yellowApple = NewApple("yellow", "medium", 70, "Italy", "high")
 	var fruit = NewFruit("blue", "medium", 30)
 	var redApple = NewApple("red", "big", 50, "Poland", "medium")
-	
+
 	sliceOfFruits := [3]*Fruit{yellowApple.Fruit, fruit, redApple.Fruit}
 
 	for _, fruit := range sliceOfFruits {
@@ -669,53 +837,10 @@ func main() {
 
 ---
 
-## Yet another slide
+## Resources
 
-1. A bulletpoint
-2. Another one
-3. Yet another one
-
----
-
-### Another slide
-
-Some Go code
-
-```go
-type Dog struct {
-	Animal
-}
-type Animal struct {
-	Age int
-}
-
-func (a *Animal) Move() {
-	fmt.Println("Animal moved")
-}
-func (a *Animal) SayAge() {
-	fmt.Printf("Animal age: %d\n", a.Age)
-}
-func main() {
-	d := Dog{}
-	d.Age = 3
-	d.Move()
-	d.SayAge()
-}
-```
-
----
-
-## Summary
-
--   Lorem ipsum <!-- .element: class="fragment" data-fragment-index="1" -->
--   Dolor sit amet <!-- .element: class="fragment" data-fragment-index="2" -->
--   Yet another point <!-- .element: class="fragment" data-fragment-index="3" -->
-
----
-
-## Final slide
-
-Some text
+-   [Go by example](https://gobyexample.com/)
+-   [Tour of go](https://tour.golang.org/welcome/1)
 
 <style>
 ::selection {
